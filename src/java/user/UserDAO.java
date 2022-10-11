@@ -32,7 +32,7 @@ public class UserDAO implements Serializable {
             con = new DbConnect().makeConnection();
             //2. Create Connection String
             if (con != null) {
-                String sql = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].Name "
+                String sql = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].RoleName "
                         + "FROM [User] FULL JOIN [Role] ON [User].RoleId = [Role].RoleId "
                         + "WHERE Email = ? AND Password = ? AND Status = ?";
                 //3. Create Statement and assign Parameters if any
@@ -52,7 +52,7 @@ public class UserDAO implements Serializable {
                     Date date = rs.getDate("CreationDate");
                     boolean status = rs.getBoolean("Status");
                     int roleId = rs.getInt("RoleId");
-                    String roleName = rs.getString("Name");
+                    String roleName = rs.getString("RoleName");
                     RoleDTO roleDto = new RoleDTO(roleId, roleName);
                     UserDTO dto = new UserDTO(email, password, avatarLink, address, fullname, phoneNumber, gender, date, status, roleDto);
                     return dto;
@@ -75,7 +75,7 @@ public class UserDAO implements Serializable {
     //Test function
     public List<UserDTO> getAllUser(int index) throws NamingException, SQLException {
         List<UserDTO> list = new ArrayList<>();
-        String query = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].Name "
+        String query = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].RoleName "
                         + "FROM [User] FULL JOIN [Role] ON [User].RoleId = [Role].RoleId "
                 + "order by [User].RoleId \n"
                 + "offset ? rows \n"
@@ -100,7 +100,7 @@ public class UserDAO implements Serializable {
                     Date date = rs.getDate("CreationDate");
                     boolean status = rs.getBoolean("Status");
                     int roleId = rs.getInt("RoleId");
-                    String roleName = rs.getString("Name");
+                    String roleName = rs.getString("RoleName");
                     RoleDTO roleDto = new RoleDTO(roleId, roleName);
                     UserDTO dto = new UserDTO(email, password, avatarLink, address, fullname, phoneNumber, gender, date, status, roleDto);
                     list.add(dto);
@@ -287,7 +287,7 @@ public class UserDAO implements Serializable {
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
-        String query = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].Name "
+        String query = "SELECT Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate,  Status, [User].RoleId, [Role].RoleName "
                         + "FROM [User] FULL JOIN [Role] ON [User].RoleId = [Role].RoleId "
                 + "where Email= ? \n";
         try {
@@ -306,7 +306,7 @@ public class UserDAO implements Serializable {
                     Date date = rs.getDate("CreationDate");
                     boolean status = rs.getBoolean("Status");
                     int roleId = rs.getInt("RoleId");
-                    String roleName = rs.getString("Name");
+                    String roleName = rs.getString("RoleName");
                     RoleDTO roleDto = new RoleDTO(roleId, roleName);
                     UserDTO dto = new UserDTO(email, password, avatarLink, address, fullname, phoneNumber, gender, date, status, roleDto);
 

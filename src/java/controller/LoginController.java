@@ -46,15 +46,18 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        System.out.println("Login");
         String email = request.getParameter("txtEmail");
         String password = request.getParameter("txtPassword");
         String url = LOGIN_PAGE; //the default page is Login.jsp for Login function
         //if failed then user will come back here
+        
 
         try {
             //login through UserDAO
             UserDAO dao = new UserDAO();
             UserDTO result = dao.checkLogin(email, password);
+            
 
             //check the result of the login and proccess acorddingly
             if (result != null) {
