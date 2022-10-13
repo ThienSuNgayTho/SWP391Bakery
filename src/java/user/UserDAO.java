@@ -363,52 +363,6 @@ public class UserDAO implements Serializable {
         return false;
     }
 
-    public boolean addNewAccount(String email, String password, String address, String fullName, String phoneNumber,
-            String gender, Date CreationDate, boolean status, int roleId)
-            throws SQLException, NamingException {
-        Connection con = null;
-        PreparedStatement stm = null;
-
-        try {
-            //1.Connect DB
-            con = new DbConnect().makeConnection();
-            if (con != null) {
-                //2. Create SQL String
-
-                String sql = "Insert Into "
-                        + "[User] (Email, Password, AvatarLink, Address, FullName, PhoneNumber, Gender, CreationDate, Status, RoleId) "
-                        + "Values(?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)";
-                //3. Create Statement and assign Parameter (if any)
-                stm = con.prepareStatement(sql);
-                stm.setString(1, email);
-                stm.setString(2, password);
-                stm.setString(3, address);
-                stm.setString(4, fullName);
-                stm.setString(5, phoneNumber);
-                stm.setString(6, gender);
-                stm.setDate(7, CreationDate);
-                stm.setBoolean(8, status);
-                stm.setInt(9, roleId);
-                //4. Execute Query             
-                int row = stm.executeUpdate(); //Insert, Delete, Update deu la Update
-                //5. Process rs
-                if (row > 0) {
-                    return true;
-                }
-
-            }//end if con is connected
-        } finally {
-            if (stm != null) {
-                stm.close();
-            }
-
-            if (con != null) {
-                con.close();
-            }
-        }
-
-        return false;
-    }
 
     public boolean changeAccountStatus(String email, boolean status)
             throws SQLException, NamingException {
