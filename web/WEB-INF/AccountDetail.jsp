@@ -10,45 +10,6 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <style type="text/css">
-            #addAccountForm label.error{
-                color: red;
-                width: 250px;
-                font-style: italic;
-            }
-        </style>
-        <style>
-            .navbar-brand {
-                padding-right: 70%;
-            }
-            .jumbotron-heading {
-                font-family: sans-serif;
-                color: #990000;
-                text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
-            }
-            .lead {
-            }
-            .update-link-true {
-                display: inline-block;
-                border: 1px;
-                border-style: solid;
-                border-radius: 10px;
-                background-color: #00cc33;
-                color: white;
-                text-decoration: none;
-                padding: 0.3em 0.6em;
-            }
-            .update-link-false {
-                display: inline-block;
-                border: 1px;
-                border-style: solid;
-                border-radius: 10px;
-                background-color: red;
-                color: white;
-                text-decoration: none;
-                padding: 0.3em 0.6em;
-            }
-        </style>
     </head>
     <body>
         <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
