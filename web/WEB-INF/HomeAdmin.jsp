@@ -91,18 +91,6 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <p class="text-info">Detail Traffic</p>
-
-                                    <style>
-                                        #my-chart {
-                                            --color: linear-gradient(#66ff66, #66ccff); 
-                                        }
-                                        .text-date {
-                                            background: -webkit-linear-gradient(#0099cc, #66ccff);
-                                            -webkit-background-clip: text;
-                                            -webkit-text-fill-color: transparent;
-                                        }
-                                    </style>
-
                                     <table class="charts-css column show-heading  show-data-on-hover datasets-spacing-5" id="my-chart" style="height: 15rem; padding-top: 2%;">
                                         <caption style="text-align: center; margin-bottom: 3%"> Daily New User Registered Past 7 Days </caption>
                                         <c:set var="traffic" value="${requestScope.DETAIL_TRAFFIC}"/>

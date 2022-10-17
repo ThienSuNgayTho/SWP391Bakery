@@ -28,23 +28,6 @@
             }
         </script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
-        <style>
-            .noti[data-count]:after {
-                position: absolute;
-                right: 0%;
-                top: 1%;
-                content: attr(data-count);
-                font-size: 80%;
-                padding: .6em;
-                border-radius: 50%;
-                line-height: .8em;
-                color: white;
-                background: rgba(255, 0, 0, 0.85);
-                text-align: center;
-                min-width: 1em;
-                font-weight: bold;
-            }
-        </style>
     </head>
     <body>
         <c:set var="jspname" value="home"/>
