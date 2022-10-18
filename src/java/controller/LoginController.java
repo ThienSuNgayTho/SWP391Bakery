@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.io.IOException;
@@ -45,27 +40,58 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
         PrintWriter out = response.getWriter();
-        System.out.println("Login");
         String email = request.getParameter("txtEmail");
         String password = request.getParameter("txtPassword");
         String url = LOGIN_PAGE; //the default page is Login.jsp for Login function
         //if failed then user will come back here
-        
 
         try {
             //login through UserDAO
             UserDAO dao = new UserDAO();
             UserDTO result = dao.checkLogin(email, password);
-            
-
+            System.out.println("Username" + result.getFullName());
+            System.out.println(result.getRole());
             //check the result of the login and proccess acorddingly
             if (result != null) {
                 //create cookie for the current user
-                Cookie cookie = new Cookie(email, password);
-                cookie.setMaxAge(60);
-                response.addCookie(cookie);
-
+                    Cookie cookieMail = new Cookie("email", email);
+                    Cookie cookiePass = new Cookie("pass", password);
+                    cookieMail.setMaxAge(60*60);
+                    cookiePass.setMaxAge(60*60);
+                    response.addCookie(cookieMail);
+                    response.addCookie(cookiePass);
                 if (result != null) {
                     //create seesion to save information of the current user
                     HttpSession session = request.getSession();
@@ -104,38 +130,10 @@ public class LoginController extends HttpServlet {
             log("LoginServlet_SQL: " + ex.getMessage());
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
+            System.out.println("Login successfully");
             rd.forward(request, response);
             out.close();
         }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
