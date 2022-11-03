@@ -143,7 +143,7 @@
             function changeStatus(id, onslider) {
                 $.ajax({
                     url: "/bakeryShopping/UpdatePostStatus",
-                    type: "get", //send it through get method
+                    type: "get", 
                     data: {
                         Id: id,
                         OnSlider: onslider
