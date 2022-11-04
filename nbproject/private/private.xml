@@ -4,12 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetMarketingStatisticController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetAdminStatisticOwnerController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetOrderDetailController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/FilterProductByCategoryController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetAssignedOrderController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/AddNewCategoryController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/AddProductController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/CategoryManagingController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManageProductController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetPendingOrderController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManagePostController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManageUserController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/CategoryEditController.java</file>
