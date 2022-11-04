@@ -109,6 +109,8 @@
                                     <td style="width: 20%">
                                         <input type="hidden" id="cId" name="cId" value="${c.categoryId.trim()}">
                                         <button class="btn btn-success"><i class="fas fa-sign-in-alt"></i>Update</button>
+                                        <button class="btn btn-success"> <a href="deleteCategory?cId=${c.categoryId.trim()}"><i class="fas fa-sign-in-alt"></i>Delete</a>
+                                        </button>
                                     </td>
                                 </form>
                                 </trW>

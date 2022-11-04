@@ -408,4 +408,18 @@ public class CategoryDAO implements Serializable {
         }
         return 0;
     }
+    
+    public void DeleteCategory(String CategoryId) {
+            String query = "Delete from Category where CategoryId= ?";
+            try {
+
+                Connection conn = new DbConnect().makeConnection();
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, CategoryId);
+
+                ps.executeQuery();
+
+            } catch (Exception E) {
+            }
+        }
 }
