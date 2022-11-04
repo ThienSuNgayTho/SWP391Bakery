@@ -3,17 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/FilterProductByCategoryController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetAssignedOrderController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/AddNewCategoryController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/AddProductController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/CategoryManagingController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManageProductController.java</file>
-            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/FilterProductByCategoryController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManagePostController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/ManageUserController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/CategoryEditController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/CartController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetAdminStatisticController.java</file>
-            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetAssignedOrderController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetCancelOrderController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/GetCompletedOrderController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/AddPostController.java</file>
         </group>
     </open-files>
