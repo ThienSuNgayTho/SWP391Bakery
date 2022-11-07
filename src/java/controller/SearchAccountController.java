@@ -1,0 +1,128 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import product.ProductDAO;
+import product.ProductDTO;
+import user.UserDAO;
+import user.UserDTO;
+
+/**
+ *
+ * @author dell
+ */
+@WebServlet(name = "SearchAccountController", urlPatterns = {"/SearchAccountController"})
+public class SearchAccountController extends HttpServlet {
+    String MANAGE_ACCOUNT_PAGE = "ManageUserController";
+    String MANAGE_ACCOUNT_RESULT_PAGE = "manageAccount.jsp";
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        String url = MANAGE_ACCOUNT_RESULT_PAGE;
+        String searchValue = request.getParameter("txtSearchValue");
+
+        try {
+
+            if (searchValue != null) {
+                if (searchValue.trim().length() > 0) {
+                    UserDAO dao = new UserDAO();
+                    String indexString = request.getParameter("index");
+                    if (indexString == null) {
+                        indexString = "1";
+                    }
+                    int index = Integer.parseInt(indexString);
+                    int maxPages = 0;
+
+                    maxPages = dao.getMaxPagesSearchBy10(searchValue);
+                    
+                    List<UserDTO> result = dao.searchAccountEmail(searchValue, index);
+                    request.setAttribute("ACCOUNT_LIST", result);
+                    request.setAttribute("maxPages", maxPages);
+                    request.setAttribute("index", index);
+                } else {
+                    url = MANAGE_ACCOUNT_PAGE;
+                }
+            } else {
+                url = MANAGE_ACCOUNT_PAGE;
+            }
+        }
+        catch(SQLException ex){
+            log("SearchAccountServlet _ SQL " + ex.getCause());
+        }
+        catch(NamingException ex){
+            log("SearchAccountServlet _ Naming " + ex.getCause());
+        }
+        finally{
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+            out.close();
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
