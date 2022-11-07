@@ -5,7 +5,9 @@
         <group>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/SearchAccountController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/SearchPostController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/SetOrderStatusController.java</file>
             <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/RemoveCartItemController.java</file>
+            <file>file:/D:/FBT/FA22_SWP391/BakeryShop/src/java/controller/SearchProductController.java</file>
         </group>
     </open-files>
 </project-private>
